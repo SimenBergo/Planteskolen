@@ -1,0 +1,49 @@
+import axios from 'axios';
+//creating routes for public, gardeners and managers to the back end with axios
+const all = axios.create({
+    baseURL: 'http://localhost:5000/all' /* 'https://deployment-lol.herokuapp.com/all' */,
+});
+const gardener = axios.create({
+    baseURL: 'http://localhost:5000/gardener' /* 'https://deployment-lol.herokuapp.com/gardener' */,
+});
+const manager = axios.create({
+    baseURL: 'http://localhost:5000/manager' /* 'https://deployment-lol.herokuapp.com/manager' */,
+});
+
+export const insertUser = payload => all.post(`/user`, payload);
+export const login = payload => all.post(`/login`, payload);
+export const forgotPassword = payload => all.post(`/forgotpassword`,payload);
+export const resetPassword = payload => all.get(`/reset`, payload);
+export const updatePasswordViaEmail = payload => all.patch(`/updatePasswordViaEmail`, payload);
+export const getAllPlants = () => all.get(`/plants`);
+export const getPlantById = id => all.get(`/plant/${id}`);
+
+export const updateUserById = (headers, id, payload) => gardener.patch(`/user/${id}`, payload, headers);
+export const getUserById = (headers, id) => gardener.get(`/user/${id}`, headers);
+export const updatePlantById = (headers, id, payload) => gardener.patch(`/plant/${id}`, payload, headers);
+
+export const getAllUsers = headers => manager.get(`/users`, headers);
+export const deleteUserById = (headers, id) => manager.delete(`/user/${id}`, headers);
+export const insertPlant = (headers, payload) => manager.post(`/plant`, payload, headers);
+export const deletePlantById = (headers, id) => manager.delete(`/plant/${id}`, headers);
+
+//export const insertUser = (headers, payload) => manager.post(`/user`, payload, headers);
+
+const apis = {
+    insertUser,
+    insertPlant,
+    getAllUsers,
+    getAllPlants,
+    updateUserById,
+    updatePlantById,
+    deleteUserById,
+    deletePlantById,
+    getUserById,
+    getPlantById,
+    login,
+    forgotPassword,
+    resetPassword,
+    updatePasswordViaEmail,
+};
+
+export default apis;
