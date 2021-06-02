@@ -95,40 +95,18 @@ updateUser = async (req, res) => {
 updatePlant = async (req, res) => {
     const body = req.body;
     const id = req.params.id;
-    console.log(typeof body.lastwatered + ' water');
-    console.log(typeof body.lastfertilized + ' fertilize');
-    if((typeof body.lastwatered === 'object') || (typeof body.lastfertilized === 'object')) {
     
-        const nextwaterObject = body.lastwatered.setDate(body.lastwatered.getDate() + parseInt(body.waterschedule));
-        const nextfertilizerObject = body.lastfertilized.setDate(body.lastfertilized.getDate() + parseInt(body.fertilizerschedule));
-        
-        const update = { name: body.name, building: body.building, room: body.room, waterschedule: body.waterschedule, lastwatered: body.lastwatered, nextwatering: nextwaterObject, fertilizer: body.fertilizer, flags: body.flags, fertilizerschedule: body.fertilizerschedule, lastfertilized: body.lastfertilized, nextfertilizing: nextfertilizerObject };  
-        
-        await Plant.updateOne({ _id: id }, { $set: update }), function (err, plant) {
-            if(plant){
-                return res.status(200).json({
-                    message: 'Plant updated successfully!',
-                    plant: plant
-                });
-            }else if (err) {
-                return res.status(400).json({
-                    message: 'An error occured'
-                });
-            }
-        }
+    let dateWater = body.lastwatered.split('-');
+    let dayWater = dateWater[2].split('T');
+    const currentWater = new Date(dateWater[0], dateWater[1] - 1, dayWater[0], 0);
+    const nextwaterString = currentWater.setDate(currentWater.getDate() + parseInt(body.waterschedule));
+    
+    let dateFertilize = body.lastfertilized.split('-');
+    let dayFertilize = dateFertilize[2].split('T');
+    const currentFertilize = new Date(dateFertilize[0], dateFertilize[1] - 1, dayFertilize[0], 0);
+    const nextfertilizingString = currentFertilize.setDate(currentFertilize.getDate() + parseInt(body.fertilizerschedule));
 
-    } else {
-        let dateWater = body.lastwatered.split('-');
-        let dayWater = dateWater[2].split('T');
-        const currentWater = new Date(dateWater[0], dateWater[1] - 1, dayWater[0], 0);
-        const nextwaterString = currentWater.setDate(currentWater.getDate() + parseInt(body.waterschedule));
-        
-        let dateFertilize = body.lastfertilized.split('-');
-        let dayFertilize = dateFertilize[2].split('T');
-        const currentFertilize = new Date(dateFertilize[0], dateFertilize[1] - 1, dayFertilize[0], 0);
-        const nextfertilizingString = currentFertilize.setDate(currentFertilize.getDate() + parseInt(body.fertilizerschedule));
-
-        const update = { name: body.name, building: body.building, room: body.room, waterschedule: body.waterschedule, lastwatered: body.lastwatered, nextwatering: nextwaterString, fertilizer: body.fertilizer, flags: body.flags, fertilizerschedule: body.fertilizerschedule, lastfertilized: body.lastfertilized, nextfertilizing: nextfertilizingString };  
+    const update = { name: body.name, building: body.building, room: body.room, waterschedule: body.waterschedule, lastwatered: body.lastwatered, nextwatering: nextwaterString, fertilizer: body.fertilizer, flags: body.flags, fertilizerschedule: body.fertilizerschedule, lastfertilized: body.lastfertilized, nextfertilizing: nextfertilizingString };  
 
     if (body) {
         await Plant.updateOne({ _id: id }, { $set: update}, function (err, plant) {
@@ -150,10 +128,6 @@ updatePlant = async (req, res) => {
             error: 'You must provide a body to update',
         });
     }
-    }
-
-        
-    
 };
 
 deleteUser = async (req, res) => {
@@ -189,7 +163,6 @@ deletePlant = async (req, res) => {
 };
 
 getUserById = async (req, res) => {
-    console.log(req.params.id);
     await User.findOne({ _id: req.params.id }, (err, user) => {
         if (err) {
             return res.status(400).json({ success: false, error: err });
@@ -229,7 +202,6 @@ getUsers = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: `User not found` });
         }
-        console.log(users);
         return res.status(200).json({ success: true, data: users });
     }).catch(err => console.log(err));
 };
@@ -245,7 +217,6 @@ getPlants = async (req, res) => {
                 .status(404)
                 .json({ success: false, error: `Plant not found` });
         }
-        console.log(plants);
         return res.status(200).json({ success: true, data: plants });
     }).catch(err => console.log(err));
 };

@@ -22,10 +22,6 @@ class UsersUpdate extends Component {
     componentDidMount = async () => {
             const { id } = this.state;
 
-            console.log(id);
-
-            console.log(this.context.generateHeaders());
-
             const user = await api.getUserById(this.context.generateHeaders(), id);
 
             this.setState({

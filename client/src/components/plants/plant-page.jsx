@@ -30,8 +30,6 @@ class Plantpage extends Component {
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onDropdownSelected = this.onDropdownSelected.bind(this);
-        //this.displayTime = this.displayTime.bind(this);
-        //this.createSelectItems = this.createSelectItems.bind(this);
     }
 
     componentDidMount = async () => {
@@ -79,10 +77,7 @@ class Plantpage extends Component {
     }
 
     onDropdownSelected = (e) => {
-        //console.log("THE VAL", e.target.value);
         const plants = this.state.allPlants.data;
-
-        //console.log(plants);
 
         for (let i = 0; i < plants.length; i++) {
             if(e.target.value === plants[i]['_id']){

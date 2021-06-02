@@ -54,9 +54,6 @@ class DisplayPlants extends Component {
         }
     }
 
-    //ANIMASJON PÅ VANNIVÅ????????
-    //FRA FIGMA
-
     waterPlant = async (id, name, building, room, waterschedule, fertilizer, flags, fertilizerschedule, lastfertilized, nextfertilizing ) => {
         const lastwatered = new Date();
 
@@ -64,7 +61,6 @@ class DisplayPlants extends Component {
             await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
             window.alert(`Plant watered successfully!`);
             window.location.reload();
-            //window.location.href = `/gardener`;
         })
     }
 

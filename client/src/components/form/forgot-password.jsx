@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { Component } from 'react';
 import api from '../../api/api';
 import { Link } from 'react-router-dom';

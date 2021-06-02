@@ -4,7 +4,7 @@ import { AuthConsumer } from '../utils/Auth';
 const GardenerRoute = ({ component: Component, ...rest }) => (
   <AuthConsumer>
     {({ isGardenerFunc }) => (
-      <Route {...rest} render={props =>
+      <Route {...rest} render={({ props }) =>
         isGardenerFunc() ? (
             <Component {...props} />
           ) : (

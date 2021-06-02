@@ -27,8 +27,6 @@ export const deleteUserById = (headers, id) => manager.delete(`/user/${id}`, hea
 export const insertPlant = (headers, payload) => manager.post(`/plant`, payload, headers);
 export const deletePlantById = (headers, id) => manager.delete(`/plant/${id}`, headers);
 
-//export const insertUser = (headers, payload) => manager.post(`/user`, payload, headers);
-
 const apis = {
     insertUser,
     insertPlant,

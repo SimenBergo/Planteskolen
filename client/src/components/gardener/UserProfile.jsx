@@ -16,7 +16,6 @@ class UserProfile extends Component {
             isLoading: false,
         }
 
-        //this.updateUser = this.updateUser.bind(this);
         this.dispUser = this.dispUser.bind(this);
     }
 
@@ -42,7 +41,6 @@ class UserProfile extends Component {
                         id="update"
                         aria-label="update"
                         color="primary"
-                        //onClick={() => this.updateUser()}
                         >Update
                     </Button>
                 </Link>

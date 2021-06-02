@@ -135,7 +135,7 @@ class UsersInsert extends Component {
                             placeholder='Email address'/>
                         </label>
 
-                        {this.props.isManager &&
+                        {this.context.isManager &&
                         <label>Role:
                             <select name='role' value={this.state.role} onChange={this.handleInputChange}>
                                 <option defaultValue='anonymous'>Anonymous</option>

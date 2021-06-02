@@ -3,19 +3,10 @@ function setWaterLevel(lastWater, interval) {
 
     const last = new Date(lastWater);
     
-    //console.log('dato sist vann: ' + last);
-
     const differenceMs = today.getTime() - last.getTime();
     const differenceDays = Math.floor(differenceMs / 1000 / 60 / 60 / 24);
 
-    //console.log('difference in miliseconds: ' + differenceMs);
-    //console.log('difference in days: ' + differenceDays);
-
-    //console.log('last water: ' + lastWater);
-    //console.log('interval: ' + interval);
-
     const waterNeed = (differenceDays / interval);
-    //console.log('need: ' + waterNeed);
 
     let level;
 
@@ -30,8 +21,6 @@ function setWaterLevel(lastWater, interval) {
     } else if (waterNeed >= 0){
         level = "Full";
     }
-
-    //console.log('level: ' + level);
 
     return level;
 }

@@ -4,21 +4,6 @@ import { Link } from "react-router-dom";
 import api from '../../api/api'
 import { AuthContext } from '../../utils/Auth';
 
-
-/* function ActiveUser(props) {
-    if(!getUser()){
-        return null;
-    }else{
-        return (
-        <div id="activeUser">
-                    <Link to="/my-profile" ><p>Logged in as {getUser().email}</p></Link>
-        </div>
-    );
-    }   
-} */
-
-//export default ActiveUser;
-
 class ActiveUser extends Component {
     static contextType = AuthContext;
 

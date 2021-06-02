@@ -9,7 +9,6 @@ import './App.css';
 import Projectinfo from "./components/misc/project-info";
 import Plantoverview from "./components/plants/plant-overview";
 import Plantpage from "./components/plants/plant-page";
-//import Gardener from "./components/gardener/gardener";
 import Login from "./components/form/login";
 import Nav from "./components/misc/navbar";
 import Manager from "./components/manager/manager";

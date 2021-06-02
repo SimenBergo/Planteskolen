@@ -4,7 +4,7 @@ import { AuthConsumer } from '../utils/Auth';
 const ManagerRoute = ({ component: Component, ...rest }) => (
   <AuthConsumer>
     {({ isManagerFunc }) => (
-      <Route {...rest} render={props =>
+      <Route {...rest} render={({ props }) =>
         isManagerFunc() ? (
             <Component {...props} />
           ) : (
