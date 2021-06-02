@@ -1,13 +1,13 @@
 import axios from 'axios';
 //creating routes for public, gardeners and managers to the back end with axios
 const all = axios.create({
-    baseURL: 'http://localhost:5000/all' /* 'https://deployment-lol.herokuapp.com/all' */,
+    baseURL:  'https://planteskolen.herokuapp.com/all',
 });
 const gardener = axios.create({
-    baseURL: 'http://localhost:5000/gardener' /* 'https://deployment-lol.herokuapp.com/gardener' */,
+    baseURL: 'https://planteskolen.herokuapp.com/gardener',
 });
 const manager = axios.create({
-    baseURL: 'http://localhost:5000/manager' /* 'https://deployment-lol.herokuapp.com/manager' */,
+    baseURL: 'https://planteskolen.herokuapp.com/manager',
 });
 
 export const insertUser = payload => all.post(`/user`, payload);
