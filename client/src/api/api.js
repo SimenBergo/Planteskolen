@@ -10,6 +10,7 @@ const manager = axios.create({
     baseURL: 'https://planteskolen.herokuapp.com/manager',
 });
 
+//sending request to back end with payload, headers for the protected routes, and id where needed
 export const insertUser = payload => all.post(`/user`, payload);
 export const login = payload => all.post(`/login`, payload);
 export const forgotPassword = payload => all.post(`/forgotpassword`,payload);

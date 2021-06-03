@@ -26,6 +26,7 @@ import SignUp from './components/form/sign-up';
 import PlantsUpdate from './components/plants/PlantsUpdate';
 import UserProfile from './components/gardener/UserProfile';
 import PlantsInsert from './components/plants/PlantsInsert';
+import UsersInsert from './components/manager/UsersInsert';
 
 class App extends Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class App extends Component {
                 
 
                 <Route exact path="/signup">
-                  <SignUp isManager = {isManager} />
+                  <UsersInsert />
                 </Route>
                 <Route exact path="/forgotpassword">
                   <ForgotPassword />
