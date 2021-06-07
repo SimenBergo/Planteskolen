@@ -395,8 +395,11 @@ figure {
   max-width: 30px;
 }
 
-#flag {
-  justify-content: center;
+#flag, 
+#needwater, 
+#fullwater {
+  display: flex;
+  flex-direction: row;
 }
 
 #warning-count {
