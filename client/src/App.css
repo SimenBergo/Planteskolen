@@ -43,7 +43,8 @@ h3 {
 #water:hover,
 #fertilize:hover,
 #delete:hover,
-#update:hover {
+#update:hover,
+#remove-flag:hover {
   transform: scale(1.05);
 }
 
@@ -118,8 +119,10 @@ p a:hover {
 
 #remove-flag {
   color: #c50202;
-  background-color: #000;
+  background-color: #adc178;
 }
+
+
 
 header img {
   height: 70px;
@@ -194,8 +197,9 @@ figure img {
   color: rgb(197, 2, 2);
 }
 
-#notofication p {
-  margin: 2px;
+#notification p {
+  margin: 5px;
+  font-size: medium;
 }
 
 #cancel {
@@ -599,6 +603,10 @@ footer img {
     margin: 2px;
   }
   li a {
+    font-size: small;
+  }
+  #notification p {
+    margin: 5px;
     font-size: small;
   }
   #plants {
