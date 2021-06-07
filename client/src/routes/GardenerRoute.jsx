@@ -1,6 +1,8 @@
 import { Route, Redirect } from "react-router-dom";
 import { AuthConsumer } from '../utils/Auth';
-  
+
+//checking if user is gardener with isGardenerFunc and rendering component if true
+//else redirect to /plant-overview
 const GardenerRoute = ({ component: Component, ...rest }) => (
   <AuthConsumer>
     {({ isGardenerFunc }) => (

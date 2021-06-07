@@ -50,7 +50,7 @@ class UsersUpdate extends Component {
         const { name, surname, email, role } = this.state;
         const payload = { name, surname, email, role };
 
-        
+        //Sending authentication header, id and payload to back end function
             await api.updateUserById(this.context.generateHeaders(), id, payload).then(res => {
             window.alert(`User updated successfully!`);
             this.setState({

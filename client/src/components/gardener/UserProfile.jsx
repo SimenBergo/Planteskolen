@@ -30,6 +30,7 @@ class UserProfile extends Component {
         this.dispUser();
     }
 
+    //user information to render
     dispUser = () => {
         const me = this.state.user;
            return <div id="me">

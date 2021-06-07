@@ -14,6 +14,8 @@ class ActiveUser extends Component {
             user: []
         }
     }
+    //if no user, return null
+    //else fetch user from back end
     componentDidMount = async ()=> {
         if(!getUser()) {
             return null;
@@ -28,6 +30,7 @@ class ActiveUser extends Component {
 
     }
 
+    //displaying in navbar which user is logged in
     render() {
         const me = this.state.user;
         return (

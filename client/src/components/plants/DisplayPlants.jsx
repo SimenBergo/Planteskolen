@@ -54,6 +54,7 @@ class DisplayPlants extends Component {
         }
     }
 
+    //if water button is clicked the lastwatered variable is set to today and updates through back end
     waterPlant = async (id, name, building, room, waterschedule, fertilizer, flags, fertilizerschedule, lastfertilized, nextfertilizing ) => {
         const lastwatered = new Date();
 
@@ -68,6 +69,7 @@ class DisplayPlants extends Component {
         window.location.href = `/plant-page/${id}`;
     }
 
+    //checking if plant was last watered today
     checkLastWatering(plant){
         const today = new Date();
 
@@ -81,6 +83,7 @@ class DisplayPlants extends Component {
         return water;
     }
 
+    //checking if next water is today or has already passed 
     checkWatering(plant) {
         const today = new Date();
 
@@ -94,6 +97,7 @@ class DisplayPlants extends Component {
         return water;
     }
 
+    //creating a div to display each plant 
     dispPlants = () => {
         const plants = this.state.plants;
         const plant = [];
@@ -105,16 +109,8 @@ class DisplayPlants extends Component {
         const sorted = this.sortPlantsBy(this.state.sortType);
 
         return sorted.map((plant, index) => {
-            const today = new Date();
-            const checkIfToday = displayTime(today)
-            let id  ;
-           if(checkIfToday === displayTime(plant.lastwatered)) {
-               id = "plantCard"
-           } else {
-               id = "plantCard"
-           }
 
-           return <div id= {id} key={index} name={`boxHover${index}`} onMouseEnter={ e => this.trueDisplay(e, index)} onMouseLeave={this.falseDisplay}>
+           return <div id= "plantCard" key={index} name={`boxHover${index}`} onMouseEnter={ e => this.trueDisplay(e, index)} onMouseLeave={this.falseDisplay}>
                 {this.context.isGardener && plant.flags > 0 && 
                     <span className='plant-warning' id='warning-count'>{plant.flags}</span>
                 }
@@ -161,6 +157,7 @@ class DisplayPlants extends Component {
         })
     }
 
+    //sorting by either next watering, next fertilizing, room or number of flags
     sortPlantsBy = (sort) => {
 
         let sorted;
@@ -182,6 +179,7 @@ class DisplayPlants extends Component {
 
     }
 
+    //notification on top of the page for watering, fertilizing and flags
     notification (plant) {
         const today = new Date();  
         const todaysWater = [];
@@ -220,7 +218,8 @@ class DisplayPlants extends Component {
             </div>
         );
     }
-    
+
+    //function for changing the sorting
     change(event){
         this.setState({
             sortType: event.target.value

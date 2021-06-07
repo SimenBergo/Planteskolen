@@ -39,21 +39,23 @@ class UsersList extends Component {
 
     dispUsers = () => {
         const people = this.state.users;
-        const gardeners = [];
+        const users = [];
 
+        //sorting out managers
         for (let i = 0; i < people.length; i++){
                 if(people[i]['role'] === "gardener" || people[i]['role'] === "anonymous"){
-                    gardeners.push(people[i]);
+                    users.push(people[i]);
                 }
         }
-        return gardeners.map((gardeners, index) => {
+        //rendering only gardeners and anonymous users
+        return users.map((users, index) => {
            return <div id="userCard" key={index}>
-                <h5>{gardeners.name} {gardeners.surname}</h5>
+                <h5>{users.name} {users.surname}</h5>
                 <p>Email: </p>
-                <p>{gardeners.email}</p>
+                <p>{users.email}</p>
                 <p>Role: </p>
-                <p>{gardeners.role}</p>
-                <Link to = {`/manager/update/${gardeners._id}`}>
+                <p>{users.role}</p>
+                <Link to = {`/manager/update/${users._id}`}>
                     <Button
                     id="update"
                     aria-label="update"
@@ -64,7 +66,7 @@ class UsersList extends Component {
                     id="delete"
                     aria-label="delete"
                     color="secondary"
-                    onClick={() => this.deleteUser(gardeners._id, gardeners.name + ' ' + gardeners.surname)}
+                    onClick={() => this.deleteUser(users._id, users.name + ' ' + users.surname)}
                     >Delete user</Button>
             </div>
         })

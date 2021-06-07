@@ -22,7 +22,6 @@ import ResetPassword from './components/form/reset-password';
 import { AuthConsumer } from './utils/Auth';
 import { AuthContext } from './utils/Auth';
 import UpdateSelf from './components/gardener/UpdateSelf';
-import SignUp from './components/form/sign-up';
 import PlantsUpdate from './components/plants/PlantsUpdate';
 import UserProfile from './components/gardener/UserProfile';
 import PlantsInsert from './components/plants/PlantsInsert';
@@ -53,7 +52,6 @@ class App extends Component {
                 <Route exact path="/plant-overview" component = {Plantoverview}/>
                 <Route exact path="/plant-page/:id" component = {Plantpage}/>
                 <Route exact path="/login" component = {Login} />
-                
 
                 <Route exact path="/signup">
                   <UsersInsert />
@@ -65,6 +63,7 @@ class App extends Component {
                   <ResetPassword />
                 </Route>
               </Switch>
+              {/* Private routes only for logged in users */}
               <PrivateRoute exact path="/profile">
                 <UserProfile />
               </PrivateRoute>
@@ -72,8 +71,10 @@ class App extends Component {
                 <UpdateSelf />
               </PrivateRoute>
 
+              {/* Private route only for gardeners */}
               <GardenerRoute exact path="/gardener/updateplant/:id" component={PlantsUpdate} />
               
+              {/* Private route only for managers */}
               <ManagerRoute component={PlantsInsert} exact path="/add-plant" />
               <ManagerRoute component={Manager} exact path="/managerpage" />
               <ManagerRoute component={UsersUpdate} exact path="/manager/update/:id" />

@@ -40,6 +40,7 @@ class PlantsInsert extends Component {
         }
     } 
 
+    //adding plant by sending the data to the back end
     handleSubmit = async (event) => {
         event.preventDefault();
         const { name, building, room, waterschedule, lastwatered, fertilizer,  fertilizerschedule, lastfertilized } = this.state;

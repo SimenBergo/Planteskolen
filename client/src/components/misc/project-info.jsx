@@ -21,6 +21,7 @@ class Projectinfo extends Component {
                     </p>
                 </section>
                 <img id="Mustad" alt="Mustad buildings" src={Mustad}></img>
+                {/* hide login button if already logged in */}
                 {!this.context.isAuthFunc() &&
                     <p><Link to="/login">Login</Link></p>
                 }

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//connecting to database using mongoose connect
 mongoose
     .connect('mongodb+srv://simencloud:elskerntnu@cluster0.5o3zb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })

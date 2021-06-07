@@ -34,6 +34,7 @@ async function managerAuth(req, res, next) {
 }
 
 app.use('/all', userRouter);
+//adding authentication with passport
 app.use('/gardener', passport.authenticate('jwt', { session: false }), gardener);
 app.use('/manager', passport.authenticate('jwt', { session: false }), managerAuth, manager);
 

@@ -31,7 +31,7 @@ class ResetPassword extends Component {
           resetPasswordToken: token
         },
       });
-      if (response.data.message === 'password reset link a-ok') {
+      if (response.data.message === 'password reset link is valid') {
         this.setState({
           email: response.data.email,
           updated: false,
@@ -57,6 +57,7 @@ class ResetPassword extends Component {
     this.setState({ [name]: value });
 }
 
+//Function to check that all the fields are filled in
   updatePassword = async (e) => {
     e.preventDefault();
     const email = this.state.email;
@@ -99,7 +100,7 @@ class ResetPassword extends Component {
   };
 
   validatePassword(){
-    //made some changes to create user validation function
+    //made some changes to validation function from usersInsert component
     const checkPassword = new RegExp("^(?=.*[a-z])(?=.*[0-9])(?=.{8,})");
 
     if(!this.state.password || !this.state.passwordRepeat){

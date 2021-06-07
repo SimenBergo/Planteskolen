@@ -21,6 +21,7 @@ class ForgotPassword extends Component {
     });
   };
 
+  //Function for sending the reset email
   sendEmail = async (e) => {
     e.preventDefault();
     const { email } = this.state;
@@ -32,6 +33,8 @@ class ForgotPassword extends Component {
       });
     } else {
       try {
+
+        //if email is not blank, it sends the email to the back-end function
         const response = await api.forgotPassword({email});
         if (response.data) {
           this.setState({
@@ -39,7 +42,6 @@ class ForgotPassword extends Component {
             messageFromServer: 'recovery email sent',
             showNullError: false,
           });
-          console.log(response.data)
           return setResetToken(response.data);
         }
       } catch (error) {
