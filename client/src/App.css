@@ -417,33 +417,6 @@ figure {
   max-width: 70px;
 }
 
-#plantCardWatered {
-  background-color: #61dafb;
-  border-radius: 2%;
-  padding: 6px;
-  margin: 5px;
-  border: 2px solid black;
-  min-height: fit-content;
-  width: 200px;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-#plantCardWatered p {
-  font-size: smaller;
-  margin: 2px;
-}
-
-#plantCardWatered img {
-  max-width: 70px;
-}
-
-#plantCardWatered #water {
-  display: none;
-}
-
 .MuiButton-label {
   font-family: 'Kiwi Maru', serif;
   font-weight: bold;

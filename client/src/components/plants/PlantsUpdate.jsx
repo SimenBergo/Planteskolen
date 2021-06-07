@@ -26,10 +26,8 @@ class PlantsUpdate extends Component {
 
     componentDidMount = async () => {
             const { id } = this.state;
-            //this.context.generateHeaders();
             const user = await api.getPlantById(id);
             
-
             this.setState({
                 name: user.data.data.name,
                 building: user.data.data.building,
@@ -75,6 +73,7 @@ class PlantsUpdate extends Component {
         })   
     }
 
+    //function to convert the date format so the calender input form can read it
     convertISOString(ISOString) {
         const date = new Date(ISOString);
         let year = date.getFullYear();

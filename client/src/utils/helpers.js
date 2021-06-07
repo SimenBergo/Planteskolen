@@ -1,3 +1,4 @@
+//calculating waterlevel based on interval and when it was last watered
 function setWaterLevel(lastWater, interval) {
     const today = new Date();
 
@@ -25,6 +26,7 @@ function setWaterLevel(lastWater, interval) {
     return level;
 }
 
+//converting the long date object to a simple, readable string
 function displayTime(timestamp) {
     const date = new Date(timestamp);
     let year = date.getFullYear();
@@ -42,6 +44,7 @@ function displayTime(timestamp) {
 
 }
 
+//returning the right styled water bar based on waterlevel
 function waterLevelBar (waterlevel) {
     if(waterlevel === 'Full') {
         return (

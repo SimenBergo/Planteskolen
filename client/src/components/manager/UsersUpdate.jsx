@@ -42,6 +42,7 @@ class UsersUpdate extends Component {
         });
     }
 
+    //updating user with data from state, sending with authorization header with token
     handleUpdateUser = async (event) => {
         event.preventDefault();
 

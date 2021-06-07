@@ -61,6 +61,7 @@ class Plantpage extends Component {
             this.selectPlant();
     }
 
+    //creating a dropdown list with all the plants
     selectPlant = () => {
         var select = document.getElementById("selectPlant"); 
         var options = this.state.allPlants.data;
@@ -76,6 +77,7 @@ class Plantpage extends Component {
         }
     }
 
+    //setting the state based on the selected plant
     onDropdownSelected = (e) => {
         const plants = this.state.allPlants.data;
 
@@ -149,6 +151,7 @@ class Plantpage extends Component {
         })
     }
 
+    //function for adding a flag to the plant
     flagPlant = async (id) => {
 
         const { name, building, room, waterschedule, lastwatered, nextwatering, fertilizer, fertilizerschedule, lastfertilized, nextfertilizing } = this.state;

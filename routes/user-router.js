@@ -7,6 +7,9 @@ const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
+//reffering the urls to the right function in the user-ctrl file
+
+//login function is here because the function did not work properly in user-ctrl
 router.post('/login',
     async (req, res, next) => {
       passport.authenticate(

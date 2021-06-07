@@ -6,6 +6,7 @@ const bcrypt       = require('bcrypt');
 
 require('dotenv').config();
 
+//inserting user to database
 createUser = async (req, res) => {
     if(!req.body){
         return res.status(400).json({
@@ -32,6 +33,7 @@ createUser = async (req, res) => {
     }
 }
 
+//inserting plant to database 
 createPlant = async (req, res) => {
     if(!req.body){
         return res.status(400).json({
@@ -64,6 +66,7 @@ createPlant = async (req, res) => {
     } 
 }
 
+//updating user
 updateUser = async (req, res) => {
     const body = req.body;
     const id = req.params.id;    
@@ -92,6 +95,7 @@ updateUser = async (req, res) => {
     
 };
 
+//updating plant
 updatePlant = async (req, res) => {
     const body = req.body;
     const id = req.params.id;
@@ -130,6 +134,7 @@ updatePlant = async (req, res) => {
     }
 };
 
+//deleting user
 deleteUser = async (req, res) => {
     await User.findOneAndDelete({ _id: req.params.id }, (err, user) => {
         if (err) {
@@ -146,6 +151,7 @@ deleteUser = async (req, res) => {
     }).catch(err => console.log(err));
 };
 
+//deleting plant
 deletePlant = async (req, res) => {
     await Plant.findOneAndDelete({ _id: req.params.id }, (err, plant) => {
         if (err) {
@@ -162,6 +168,7 @@ deletePlant = async (req, res) => {
     }).catch(err => console.log(err));
 };
 
+//retrieving user based on id
 getUserById = async (req, res) => {
     await User.findOne({ _id: req.params.id }, (err, user) => {
         if (err) {
@@ -177,6 +184,7 @@ getUserById = async (req, res) => {
     }).catch(err => console.log(err));
 };
 
+//retrieving plant based on id
 getPlantById = async (req, res) => {
     await Plant.findOne({ _id: req.params.id }, (err, plant) => {
         if (err) {
@@ -192,6 +200,7 @@ getPlantById = async (req, res) => {
     }).catch(err => console.log(err));
 };
 
+//retrieving all users
 getUsers = async (req, res) => {
     await User.find({}, (err, users) => {
         if (err) {
@@ -206,6 +215,7 @@ getUsers = async (req, res) => {
     }).catch(err => console.log(err));
 };
 
+//retrieving all plants
 getPlants = async (req, res) => {
     
     await Plant.find({}, (err, plants) => {
@@ -221,8 +231,7 @@ getPlants = async (req, res) => {
     }).catch(err => console.log(err));
 };
 
-//REMEMBER TO CHANGE USERNAME AND PASSWORD TO DOTENV FILE
-
+//sending reset password email with unique link
 forgotPassword = async (req, res)=> {
     if (req.body.email === '') {
         res.status(400).send('email required');
@@ -275,6 +284,7 @@ forgotPassword = async (req, res)=> {
     });   
 };
 
+//Checking if reset password token is valid or invalid
 resetPassword = async (req,res) => {
     User.findOne({
           resetPasswordToken: req.query.resetPasswordToken,
@@ -283,16 +293,17 @@ resetPassword = async (req,res) => {
           },
       }).then((user) => {
         if (user == null) {
-          res.status(403).send('password reset link is invalid or has expired NOOB');
+          res.status(403).send('password reset link is invalid or has expired.');
         } else {
           res.status(200).send({
             email: user.email,
-            message: 'password reset link a-ok',
+            message: 'password reset link is valid',
           });
         }
     });
 }
 
+//updating the password with the new password, after hashing it
 UpdatePasswordviaEmail = async (req, res) => {
     const body = req.body;
     const user = await User.findOne({ resetPasswordToken: body.token });                

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import Plantlogo from "../../assets/logo-plant.png";
 import ActiveUser from '../misc/activeUser';
 
-//Stateless component used to
-
+//Stateless component used to navigate the different pages
+//Sending props from app.js to hide or show certain links in the navbar
 function Nav(props) {
 
     return (

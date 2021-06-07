@@ -29,13 +29,14 @@ class Login extends Component {
         });
     }
 
+    //Sending the login information to the authproviders login function to set token
+    //together with isAuth, isGardener and isManager
     handleLogIn = async (event) => {
         event.preventDefault();
         const { email, password } = this.state;
         const payload = { email, password };
         try {
-            const response = await this.context.login(payload);
-            const role = response.body.role;
+            await this.context.login(payload);
             
             window.location.href = `/plant-overview`;
           } catch (error) {

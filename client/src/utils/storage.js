@@ -1,4 +1,4 @@
-
+//Storing token and some user information to localstorage
 const LOCAL_STORAGE_PREFIX = 'planteskolen-';
 
 function getToken() {

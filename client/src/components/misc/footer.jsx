@@ -1,5 +1,6 @@
 import Logo from "../../assets/ntnu-logo-white.png";
 
+//footer component with ntnu logo and group number
 export default function Footer () {
     return (
         <footer>

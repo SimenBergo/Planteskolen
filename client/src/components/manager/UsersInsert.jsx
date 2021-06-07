@@ -33,6 +33,7 @@ class UsersInsert extends Component {
 
     }
 
+    //validating all fields are filled in and sending data to back end
     handleSubmit = async (event) => {
         event.preventDefault();
         
@@ -70,6 +71,7 @@ class UsersInsert extends Component {
             }
     }
 
+    //if role is empty, setting role to anonymous
     setAnonymous(){
         if(this.state.role === ""){
                 const role = 'anonymous';
@@ -135,6 +137,7 @@ class UsersInsert extends Component {
                             placeholder='Email address'/>
                         </label>
 
+                        {/*Hiding role for anyone except managers */}
                         {this.context.isManager &&
                         <label>Role:
                             <select name='role' value={this.state.role} onChange={this.handleInputChange}>

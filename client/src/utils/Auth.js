@@ -24,6 +24,7 @@ class AuthProvider extends React.Component {
     } 
   }
 
+  //setting state to correct values depending on role
   login = async (payload) => {
     try {
       const response = await api.login(payload);
@@ -36,13 +37,11 @@ class AuthProvider extends React.Component {
       });
       }else if (body.role === 'gardener'){
         this.setState({ isAuth: true, token, body, isGardener: true }, () => {
-          //callback to store token
           setToken(token);
           setUser(body);
         });
       } else {
         this.setState({ isAuth: true, token, body }, () => {
-          //callback to store token
           setToken(token);
           setUser(body);
         });
