@@ -233,6 +233,7 @@ class DisplayPlants extends Component {
                     this.notification(this.state.plants)
                     }
                     <p> {this.state.plants.length} plants are currently on campus.</p>
+                    {this.context.isGardener &&
                     <div id='icon-explain'>
                         <div id='flag'>
                             <span id='warning-count-regular'>1</span>
@@ -249,7 +250,7 @@ class DisplayPlants extends Component {
                             <p>Plant has been watered today.</p>
                         </div>
                     </div>
-                    
+                    }
                     <p>Sort by:</p>
                     <select onChange = {this.change} value={this.state.sortType} id="plantsort">
                         <option value="nextwater">Next watering</option>
