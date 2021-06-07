@@ -195,7 +195,7 @@ class DisplayPlants extends Component {
 
             if(dateWater < today) { 
                 todaysWater.push(plant[i]);
-                plantName.push(' ' + plant[i]['name'] + '(' + plant[i]['room'] + ')');
+                plantName.push(' ' + plant[i]['name'] + '   (' + plant[i]['room'] + ')');
             }
             
             if(dateFertilize < today) {
