@@ -393,10 +393,21 @@ figure {
 
 #icon-explain {
   display: flex;
+  flex-direction: column;
 }
 
 #icon-explain img {
   max-width: 30px;
+  max-height: 30px;
+  align-self: center;
+  margin-right: 5px;
+}
+
+#icon-explain span {
+  max-height: 18px;
+  border-radius: 9px;
+  align-self: center;
+  margin-right: 5px;
 }
 
 #flag, 
