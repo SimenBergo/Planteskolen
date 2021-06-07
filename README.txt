@@ -26,7 +26,7 @@ To start the client run 'npm start' in a terminal in the client folder
 
 The system should then open your browser on the landing page
 of the project. The front end sends requests to the API that is deployed on heroku.
-If you want to change this to test the back end locally as well, go to client/srcapi/api.js and replace line
+If you want to change this to test the back end locally as well, go to client/src/api/api.js and replace line
 1 to 11 with this:
 
       import axios from 'axios';
