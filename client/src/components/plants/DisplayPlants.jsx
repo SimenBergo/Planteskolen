@@ -236,7 +236,7 @@ class DisplayPlants extends Component {
                     <div id='icon-explain'>
                         <div id='flag'>
                             <span id='warning-count-regular'>1</span>
-                            <p>Number of flags on this plant.</p>
+                            <p>Number of flags on the plant.</p>
                         </div>
                     
                         <div id='needwater'>
