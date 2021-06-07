@@ -22,7 +22,7 @@ NPM dependencies needs to be installed seperatly in both folders for
 the project to work, do this by opening two terminals, one in each folder, 
 and running npm install in both of them.
 
-To start the server run 'node server.js' in the server terminal, opened in the server folder location
+To start the server run 'node index.js' in the server terminal, opened in the server folder location
 To start the client run 'npm start' in a terminal in the client folder
 
 The system should then open your browser on the landing page
