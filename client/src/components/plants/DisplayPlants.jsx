@@ -234,9 +234,20 @@ class DisplayPlants extends Component {
                     }
                     <p> {this.state.plants.length} plants are currently on campus.</p>
                     <div id='icon-explain'>
-                    <span className='plant-warning' id='warning-count'>1</span> <p>Number of flags on this plant.</p>
-                    <img src={waterAlert} alt='Water Alert'/><p>Plant needs water now.</p>
-                    <img src={checkIcon} alt='Water Alert'/><p>Plant has been watered today.</p>
+                        <div id='flag'>
+                            <span id='warning-count-regular'>1</span>
+                            <p>Number of flags on this plant.</p>
+                        </div>
+                    
+                        <div id='needwater'>
+                            <img src={waterAlert} alt='Water Alert'/>
+                            <p>Plant needs water now.</p>
+                        </div>
+
+                        <div id='fullwater'>
+                            <img src={checkIcon} alt='Water Alert'/>
+                            <p>Plant has been watered today.</p>
+                        </div>
                     </div>
                     
                     <p>Sort by:</p>
