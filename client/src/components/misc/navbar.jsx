@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Plantlogo from "../../assets/logo-plant.png";
 import ActiveUser from '../misc/activeUser';
 
+//Stateless component used to
+
 function Nav(props) {
 
     return (

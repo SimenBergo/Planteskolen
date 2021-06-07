@@ -116,6 +116,11 @@ p a:hover {
   transition-duration: 0.2s;
 }
 
+#remove-flag {
+  color: #c50202;
+  background-color: #000;
+}
+
 header img {
   height: 70px;
 }
