@@ -35,6 +35,23 @@ h3 {
   color: black;
 }
 
+#page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 50px;
+}
+
+#page-not-found h3 {
+  font-size: x-large;
+}
+
+#page-not-found a {
+  color: blue;
+  font-size: x-large;
+}
+
 #water {
   background-color: #61dafb;
   color: black;
