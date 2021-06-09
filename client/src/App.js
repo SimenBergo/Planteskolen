@@ -14,18 +14,16 @@ import Nav from "./components/misc/navbar";
 import Manager from "./components/manager/manager";
 import Footer from "./components/misc/footer";
 import PrivateRoute from "./routes/PrivateRoute";
-import GardenerRoute from './routes/GardenerRoute';
 import ManagerRoute from './routes/ManagerRoute';
-import UsersUpdate from './components/manager/UsersUpdate';
 import ForgotPassword from './components/form/forgot-password';
 import ResetPassword from './components/form/reset-password';
 import { AuthConsumer } from './utils/Auth';
 import { AuthContext } from './utils/Auth';
 import UpdateSelf from './components/gardener/UpdateSelf';
-import PlantsUpdate from './components/plants/PlantsUpdate';
 import UserProfile from './components/gardener/UserProfile';
 import PlantsInsert from './components/plants/PlantsInsert';
 import UsersInsert from './components/manager/UsersInsert';
+import PageNotFound from './components/misc/PageNotFound';
 
 class App extends Component {
   constructor(props) {
@@ -62,8 +60,9 @@ class App extends Component {
                 <Route exact path="/reset/:token">
                   <ResetPassword />
                 </Route>
+                <Route component={ PageNotFound } />
               </Switch>
-              
+
               {/* Private routes only for logged in users */}
               <PrivateRoute exact path="/profile">
                 <UserProfile />
