@@ -63,6 +63,7 @@ class App extends Component {
                   <ResetPassword />
                 </Route>
               </Switch>
+              
               {/* Private routes only for logged in users */}
               <PrivateRoute exact path="/profile">
                 <UserProfile />
@@ -70,14 +71,10 @@ class App extends Component {
               <PrivateRoute exact path="/profile/update">
                 <UpdateSelf />
               </PrivateRoute>
-
-              {/* Private route only for gardeners */}
-              <GardenerRoute exact path="/gardener/updateplant" component={PlantsUpdate} />
               
               {/* Private route only for managers */}
               <ManagerRoute component={PlantsInsert} exact path="/add-plant" />
               <ManagerRoute component={Manager} exact path="/managerpage" />
-              <ManagerRoute component={UsersUpdate} exact path="/manager/update" />
             </main>
             <Footer />
           </div>

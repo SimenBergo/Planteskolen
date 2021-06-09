@@ -328,15 +328,18 @@ figure {
   margin: 10px;
 }
 
-.plants form {
+.plants form,
+#manager form {
   width: 100%;
 }
 
-.plants label {
+.plants label,
+#manager label {
   margin-bottom: 0;
 }
 
-.plants input {
+.plants input,
+#manager input {
   margin-top: 0;
 }
 
