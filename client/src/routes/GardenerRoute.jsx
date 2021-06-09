@@ -12,8 +12,7 @@ const GardenerRoute = ({ component: Component, ...rest }) => (
           ) : (
             <Redirect
               to={{
-                pathname: "/plant-overview",
-                state: { from: props.location }
+                pathname: "/plant-overview"
               }}
             />
           )}

@@ -17,11 +17,11 @@ Built with
 How to use our system:
 
 The main folder is the server folder, which contains everything needed. Within this folder there is a client folder
-that contains the front end part of the code
+that contains the front end part of the code.
 Open a terminal in the main server folder and run "npm install" to install
-all neccesary dependencies.
+all neccesary dependencies for the server.
+Do this in the client folder as well, since both the server and client needs npm dependencies to work.
 
-To start the server run 'node index.js' in the server terminal, opened in the server folder location
 To start the client run 'npm start' in a terminal in the client folder
 
 The system should then open your browser on the landing page
@@ -41,10 +41,10 @@ If you want to change this to test the back end locally as well, go to client/sr
         baseURL: 'http://localhost:5000/manager',
     });
 
-To start the sever locally, run "node index.js" in the main folder, after changing
-the details above.  
-From here on you can log in with these provided test
-users:
+To start the server locally, run "node index.js" in the main folder, after changing
+the details above. Run this in a separate terminal window to start both the server and client at
+the same time.   
+From here on you can log in with these provided test users:
 
 Manager for testing:
  - email: manager@user.com
@@ -61,9 +61,6 @@ To be able to test the forgot password functionality,
 change the email of your user to one you can actually access.
 An email will be sent from our API to this adress with further
 info and links to change password.
-It is also poosible for other people to create a user by going to the login page and
-pressing the sign up link. When creating a user here, that persons role will be set to
-anonymous, and then a manager needs to update that user's role if needed. 
 
 
 Regards,

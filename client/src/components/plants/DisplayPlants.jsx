@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import api from '../../api/api';
 import Plantlogo from "../../assets/logo-plant.png";
 import { AuthContext } from '../../utils/Auth';
 import { displayTime } from '../../utils/helpers';
 import waterAlert from '../../assets/water-alert.png';
 import checkIcon from '../../assets/check.png';
+import PlantsUpdate from './PlantsUpdate';
 
 class DisplayPlants extends Component {
     static contextType = AuthContext;
@@ -19,7 +19,9 @@ class DisplayPlants extends Component {
             columns: [],
             isLoading: false,
             boxHover: '',
-            sortType: 'nextwater'
+            sortType: 'nextwater',
+            updatePlant: false,
+            updateId: ''
         }
         this.trueDisplay = this.trueDisplay.bind(this)
         this.falseDisplay = this.falseDisplay.bind(this)
@@ -47,6 +49,13 @@ class DisplayPlants extends Component {
         this.dispPlants();
     }
     
+    updatePlant(id) {
+        this.setState({
+            updatePlant: true,
+            updateId: id
+        })
+    }
+
     deletePlant(id, name) {
         if(window.confirm(`Do you want to delete the plant ${name} permanently?`)){
             api.deletePlantById(this.context.generateHeaders(), id);
@@ -60,7 +69,6 @@ class DisplayPlants extends Component {
 
         const payload = { name, building, room, waterschedule, lastwatered, fertilizer, flags, fertilizerschedule, lastfertilized, nextfertilizing };
             await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
-            window.alert(`Plant watered successfully!`);
             window.location.reload();
         })
     }
@@ -133,12 +141,12 @@ class DisplayPlants extends Component {
                 </Button>
                 
                 {this.context.isGardener &&
-                <Link to = {`/gardener/updateplant/${plant._id}`}>
                 <Button
                     id="update"
                     aria-label="update"
                     color="primary"
-                >Update</Button></Link> }
+                    onClick= {() => this.updatePlant(plant._id)}
+                >Update</Button> }
                 {this.context.isManager &&
                 <Button
                     id="delete"
@@ -228,6 +236,11 @@ class DisplayPlants extends Component {
 
     render() {
         return (
+            <>
+            {!this.state.updatePlant&&
+                <>
+                <h2>Overview of all plants</h2>
+                
                 <div id="allPlants">
                     {this.context.isGardener &&
                     this.notification(this.state.plants)
@@ -264,6 +277,11 @@ class DisplayPlants extends Component {
                         {this.dispPlants(this.state.plants)}
                     </div>
                 </div>
+                </>}
+                {this.state.updatePlant &&
+                    <PlantsUpdate id={ this.state.updateId }/>
+                }
+                </>
             )
         }
 }

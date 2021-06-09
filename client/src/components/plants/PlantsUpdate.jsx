@@ -9,7 +9,7 @@ class PlantsUpdate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.match.params.id,
+            id: props.id,
             name: '',
             building: '',
             room: '',
@@ -99,16 +99,19 @@ class PlantsUpdate extends Component {
                     <form onSubmit={this.handleUpdatePlant}>
 
                         {this.context.isManager &&
-                        <label>Name:
-                        <input 
-                        required
-                        type="text" 
-                        name="name"
-                        value={name}
-                        onChange={this.handleInputChange}
-                        /></label>}
+                        <>
+                            <label>Name:</label>
+                            <input 
+                            required
+                            type="text" 
+                            name="name"
+                            value={name}
+                            onChange={this.handleInputChange}
+                            />
+                        </>
+                        }
 
-                        <label>Building:
+                        <label>Building:</label>
                             <select required name='building' value={building} onChange={this.handleInputChange}>
                                 <option defaultValue=''></option>
                                 <option value='K-bygget'>K-bygget</option>
@@ -118,7 +121,7 @@ class PlantsUpdate extends Component {
                                 <option value='S-bygget'>S-bygget</option>
                                 <option value='H-bygget'>H-bygget</option>
                             </select>
-                        </label>
+                        
 
                         <label>Room:</label>
                         <input
@@ -130,52 +133,62 @@ class PlantsUpdate extends Component {
                         />
 
                         {this.context.isManager &&
-                        <label>Water interval in days:
-                        <input
-                        name='waterschedule'
-                        value={waterschedule}
-                        onChange={this.handleInputChange}
-                        type='number'/>
-                        </label>}
+                        <>
+                            <label>Water interval in days:</label>
+                            <input
+                            name='waterschedule'
+                            value={waterschedule}
+                            onChange={this.handleInputChange}
+                            type='number'/>
+                        </>
+                        }
 
                         {this.context.isManager &&
-                        <label>Last watered:
-                        <input
-                        name='lastwatered'
-                        value={this.convertISOString(lastwatered)}
-                        onChange={this.handleInputChange}
-                        type='date'/>
-                        </label>}
+                        <>
+                            <label>Last watered:</label>
+                            <input
+                            name='lastwatered'
+                            value={this.convertISOString(lastwatered)}
+                            onChange={this.handleInputChange}
+                            type='date'/>
+                        </>
+                        }
 
                         {this.context.isManager &&
-                        <label>Fertilizer:
-                        <select name='fertilizer' value={fertilizer} onChange={this.handleInputChange}>
-                            <option defaultValue=''></option>
-                            <option value='Dirt'>Dirt</option>
-                            <option value='Compost'>Compost</option>
-                            <option value='Calcium'>Calcium</option>
-                        </select>
-                        </label>}
+                        <>
+                            <label>Fertilizer:</label>
+                            <select name='fertilizer' value={fertilizer} onChange={this.handleInputChange}>
+                                <option defaultValue=''></option>
+                                <option value='Dirt'>Dirt</option>
+                                <option value='Compost'>Compost</option>
+                                <option value='Calcium'>Calcium</option>
+                            </select>
+                        </>
+                        }
 
                         {this.context.isManager &&
-                        <label>Fertilizing interval in days:
-                        <input
-                        name='fertilizerschedule'
-                        value={fertilizerschedule}
-                        onChange={this.handleInputChange}
-                        type='number'/>
-                        </label>}
+                        <>
+                            <label>Fertilizing interval in days:</label>
+                            <input
+                            name='fertilizerschedule'
+                            value={fertilizerschedule}
+                            onChange={this.handleInputChange}
+                            type='number'/>
+                        </>
+                        }
 
                         {this.context.isManager &&
-                        <label>Last fertilized:
-                        <input
-                        name='lastfertilized'
-                        value={this.convertISOString(lastfertilized)}
-                        onChange={this.handleInputChange}
-                        type='date'/>
-                        </label>}
+                        <>
+                            <label>Last fertilized:</label>
+                            <input
+                            name='lastfertilized'
+                            value={this.convertISOString(lastfertilized)}
+                            onChange={this.handleInputChange}
+                            type='date'/>
+                        </>
+                        }
                         
-                        <input type="submit" value="Update plant" />
+                        <input id='submit-id' type="submit" value="Update plant" />
                     </form>
                     <Button href={`/plant-overview`} id="cancel">Cancel</Button>
                     </>

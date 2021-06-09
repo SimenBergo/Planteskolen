@@ -5,14 +5,13 @@ import { AuthConsumer } from '../utils/Auth';
 const PrivateRoute = ({ children, ...rest }) => (
   <AuthConsumer>
     {({ isAuthFunc }) => (
-      <Route {...rest} render={({ location }) =>
+      <Route {...rest} render={() =>
         isAuthFunc() ? (
             children
           ) : (
             <Redirect
               to={{
-                pathname: "/login",
-                state: { from: location }
+                pathname: "/login"
               }}
             />
           )}

@@ -12,8 +12,7 @@ const ManagerRoute = ({ component: Component, ...rest }) => (
           ) : (
             <Redirect
               to={{
-                pathname: "/profile",
-                state: { from: props.location }
+                pathname: "/profile"
               }}
             />
           )}

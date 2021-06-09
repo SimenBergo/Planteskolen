@@ -310,30 +310,55 @@ figure {
   margin: 10px;
 }
 
-#plants {
-  display: flex;
+.plants {
+  justify-content: center;
   flex-flow: row wrap;
   align-items: center;
   margin: 1%;
+  padding: 2%;
   background-color: #F0EAD2;
+  width: 100%;
+}
+
+.plants a {
+  max-height: 8%;
+}
+
+#submit-id {
+  margin: 10px;
+}
+
+.plants form {
+  width: 100%;
+}
+
+.plants label {
+  margin-bottom: 0;
+}
+
+.plants input {
+  margin-top: 0;
 }
 
 #plantOverview {
+  display: flex;
+  justify-content: center;
   width: 90%;
   margin: 2%;
 }
 
-#plants figure {
+.plants figure {
   margin: 1%;
   max-width: 10%;
+  max-width: 40%;
 }
 
-#plants figure:hover {
+.plants figure:hover {
   transform: scale(1.1);
   transition-duration: 0.3s;
 }
 
-#plants figure img {
+.plants figure img {
   max-width: 40%;
 }
 
@@ -619,19 +644,6 @@ footer img {
   #notification p {
     margin: 5px;
     font-size: small;
-  }
-  #plants {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2%;
-  }
-  #plants figure {
-    max-width: 40%;
-  }
-  #plants figure:hover {
-    transform: scale(1.05);
-    transition-duration: 0.3s;
   }
 
   #plantCard img, #plantCardWatered img {

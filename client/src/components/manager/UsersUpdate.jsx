@@ -9,7 +9,7 @@ class UsersUpdate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: this.props.match.params.id,
+            id: props.id,
             name: '',
             surname: '',
             email: '',

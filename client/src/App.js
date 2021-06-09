@@ -72,12 +72,12 @@ class App extends Component {
               </PrivateRoute>
 
               {/* Private route only for gardeners */}
-              <GardenerRoute exact path="/gardener/updateplant/:id" component={PlantsUpdate} />
+              <GardenerRoute exact path="/gardener/updateplant" component={PlantsUpdate} />
               
               {/* Private route only for managers */}
               <ManagerRoute component={PlantsInsert} exact path="/add-plant" />
               <ManagerRoute component={Manager} exact path="/managerpage" />
-              <ManagerRoute component={UsersUpdate} exact path="/manager/update/:id" />
+              <ManagerRoute component={UsersUpdate} exact path="/manager/update" />
             </main>
             <Footer />
           </div>

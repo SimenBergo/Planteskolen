@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Greyplant from "../../assets/logo-plant-grey.png";
 import { Button } from '@material-ui/core';
 import api from '../../api/api';
 import { AuthContext } from '../../utils/Auth';
 import { setWaterLevel, waterLevelBar, displayTime } from '../../utils/helpers';
+import PlantsUpdate from './PlantsUpdate';
 
 
 class Plantpage extends Component {
@@ -26,7 +26,8 @@ class Plantpage extends Component {
             lastfertilized: '',
             nextfertilizing: '',
             flags: 0,
-            allPlants: []
+            allPlants: [],
+            updatePlant: false
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.onDropdownSelected = this.onDropdownSelected.bind(this);
@@ -167,12 +168,25 @@ class Plantpage extends Component {
             window.location.reload();
         })
     }
+    
+    updatePlant() {
+        this.setState({
+            updatePlant: true
+        })   
+    }
 
     render() {
-        const { id, name, building, room, waterlevel, lastwatered, fertilizer, nextwatering, flags, lastfertilized, nextfertilizing } = this.state;
+        const { id, name, building, room, waterlevel, lastwatered, fertilizer, nextwatering, flags, lastfertilized, nextfertilizing, updatePlant } = this.state;
             return (
-                <div>
-                    
+                <>
+                {updatePlant &&
+                    <div className="plants">
+                        <PlantsUpdate id={id} />
+                    </div>
+                }
+                
+                {!updatePlant &&
+                <div>    
                     <p>Select plant:</p>
                     <select id = "selectPlant" onChange = {this.onDropdownSelected}>
                         <option value={this.state.id}>{this.state.name}, {this.state.room}</option>
@@ -207,11 +221,11 @@ class Plantpage extends Component {
                             Let us know below:</p> }
                         {!this.context.isGardener &&
                         <Button
-                        id="flag"
-                        aria-label="flag"
-                        color="primary"   
-                        onClick={() => this.flagPlant(id)}
-                    >Flag this plant</Button> }
+                            id="flag"
+                            aria-label="flag"
+                            color="primary"   
+                            onClick={() => this.flagPlant(id)}
+                        >Flag this plant</Button> }
                         {this.context.isGardener &&
                         <Button
                             id="water"
@@ -227,18 +241,20 @@ class Plantpage extends Component {
                             onClick={() => this.fertilizePlant()}                
                         >Fertilize</Button>}
                         {this.context.isGardener &&
-                        <Link to = {`/gardener/updateplant/${id}`}>
                             <Button
                             id="update"
                             aria-label="update"
                             color="primary"
-                        >Update</Button>
-                        </Link> }
+                            onClick={() => this.updatePlant()}
+                            >Update</Button>
+                         }
                         <Button id="back" href={`/plant-overview`}>Back</Button>
                     </figure>
                 </div>
+                }
+                </>
             )
-        }
+    }
 
 }
 

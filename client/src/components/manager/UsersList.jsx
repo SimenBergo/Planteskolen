@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
 import api from '../../api/api';
 import { AuthContext } from '../../utils/Auth';
-import { Link } from 'react-router-dom';
+import UsersUpdate from './UsersUpdate';
+import UsersInsert from './UsersInsert';
 
 class UsersList extends Component {
     static contextType = AuthContext;
@@ -11,10 +12,11 @@ class UsersList extends Component {
         super(props)
         this.state = {
             role: '',
+            updateId: '',
             users: [],
             columns: [],
             isLoading: false,
-            
+            update: false
         }
     }
     
@@ -36,6 +38,13 @@ class UsersList extends Component {
         }
     } 
 
+    updateUser(id) {
+        this.setState({
+            update: true,
+            updateId: id
+        })
+    }
+
 
     dispUsers = () => {
         const people = this.state.users;
@@ -55,13 +64,14 @@ class UsersList extends Component {
                 <p>{users.email}</p>
                 <p>Role: </p>
                 <p>{users.role}</p>
-                <Link to = {`/manager/update/${users._id}`}>
-                    <Button
+                
+                <Button
                     id="update"
                     aria-label="update"
                     color="primary"
-                    >Update</Button>
-                </Link>
+                    onClick={() => this.updateUser(users._id)}
+                >Update</Button>
+
                 <Button
                     id="delete"
                     aria-label="delete"
@@ -74,12 +84,24 @@ class UsersList extends Component {
 
     render() {
         return (
-                <section>
-                    <h2>All gardeners & anonymous users</h2>
-                    <div id="dispUsers">
-                    {this.dispUsers(this.state.users)}
+            <>
+                {!this.state.update &&
+                    <section>
+                        <h2>All gardeners & anonymous users</h2>
+                        <div id="dispUsers">
+                        {this.dispUsers(this.state.users)}
+                        </div>
+                    </section>
+                }
+                {!this.state.update &&
+                    <div id="addUser">
+                        <UsersInsert />
                     </div>
-                </section>
+                }
+                {this.state.update &&
+                    <UsersUpdate id = { this.state.updateId }/>
+                }
+            </>
             )
         }
 }
