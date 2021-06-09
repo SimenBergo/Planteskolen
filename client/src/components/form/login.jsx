@@ -35,16 +35,14 @@ class Login extends Component {
         event.preventDefault();
         const { email, password } = this.state;
         const payload = { email, password };
-        try {
-            await this.context.login(payload);
-            
+        const response = await this.context.login(payload);
+        if(response.token){
             window.location.href = `/plant-overview`;
-          } catch (error) {
-            console.error(error);
+        }else if(response.error.error === 'error'){
             this.setState({
                 showError: true
             });
-          }
+        }  
     };
 
     render() {
@@ -70,7 +68,7 @@ class Login extends Component {
                             {showError && (
                                 <div>
                                     <p>
-                                    Wrong password!
+                                    Wrong password or email!
                                     </p>
                                 </div>
                             )}

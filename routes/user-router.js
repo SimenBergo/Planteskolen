@@ -17,15 +17,14 @@ router.post('/login',
         async (err, user) => {
           try {
             if (err || !user) {
-              const error = new Error('An error occurred.');
-              return next(error);
+              return next({error: 'error'});
             }
   
             req.login(
               user,
               { session: false },
               async (error) => {
-                if (error) return next(error);
+                if (error) return next({error: 'error'});
   
                 const body = { role: user.role, _id: user._id, email: user.email };
                 const token = jwt.sign({ user: body }, 'supersecret');
@@ -34,7 +33,7 @@ router.post('/login',
               }
             );
           } catch (error) {
-            return next(error);
+            return next({error: 'error'});
           }
         }
       )(req, res, next);
