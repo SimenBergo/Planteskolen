@@ -46,5 +46,6 @@ router.patch('/updatePasswordViaEmail', UserCtrl.UpdatePasswordviaEmail);
 router.get('/plants', UserCtrl.getPlants);
 router.get('/plant/:id', UserCtrl.getPlantById);
 router.post('/user', UserCtrl.createUser);
+router.patch('/plant/:id', UserCtrl.updatePlant);
 
 module.exports = router;

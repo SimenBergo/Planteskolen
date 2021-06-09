@@ -110,7 +110,7 @@ class Plantpage extends Component {
         const lastwatered = new Date();
 
         const payload = { name, building, room, waterschedule, lastwatered, fertilizer, flags, fertilizerschedule, lastfertilized, nextfertilizing };
-            await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
+            await api.updatePlantById(id, payload).then(res => {
             window.alert(`Plant watered successfully!`);
             window.location.reload();
         })
@@ -122,7 +122,7 @@ class Plantpage extends Component {
         const lastfertilized = new Date();
 
         const payload = { name, building, room, waterschedule, lastwatered, nextwatering, fertilizer, flags, fertilizerschedule, lastfertilized };
-            await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
+            await api.updatePlantById(id, payload).then(res => {
             window.alert(`Plant fertilized successfully!`);
             window.location.reload();
         })
@@ -147,7 +147,7 @@ class Plantpage extends Component {
         
         const payload = { name, building, room, waterschedule, lastwatered, fertilizer, nextwatering, flags, fertilizerschedule, lastfertilized, nextfertilizing };
 
-        await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
+        await api.updatePlantById(id, payload).then(res => {
             window.location.reload();
         })
     }
@@ -163,7 +163,7 @@ class Plantpage extends Component {
         
         const payload = { name, building, room, waterschedule, lastwatered, nextwatering, fertilizer, flags, fertilizerschedule, lastfertilized, nextfertilizing };
 
-        await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
+        await api.updatePlantById(id, payload).then(res => {
             window.alert('Plant has been flagged, someone will take a look at it.');
             window.location.reload();
         })
@@ -216,7 +216,7 @@ class Plantpage extends Component {
                         <p>Fertilizer: {fertilizer}</p>
                         <p>Last fertilized: {displayTime(lastfertilized)}</p>
                         <p>Next fertilizing: {displayTime(nextfertilizing)}</p>
-                        {!this.context.isGardener &&
+                        {!this.context.isGardener && this.context.isAuthFunc &&
                         <p>Does this plant need water or fertilizer now? <br /> 
                             Let us know below:</p> }
                         {!this.context.isGardener &&

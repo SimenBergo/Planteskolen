@@ -18,10 +18,10 @@ export const resetPassword = payload => all.get(`/reset`, payload);
 export const updatePasswordViaEmail = payload => all.patch(`/updatePasswordViaEmail`, payload);
 export const getAllPlants = () => all.get(`/plants`);
 export const getPlantById = id => all.get(`/plant/${id}`);
+export const updatePlantById = (id, payload) => all.patch(`/plant/${id}`, payload);
 
 export const updateUserById = (headers, id, payload) => gardener.patch(`/user/${id}`, payload, headers);
 export const getUserById = (headers, id) => gardener.get(`/user/${id}`, headers);
-export const updatePlantById = (headers, id, payload) => gardener.patch(`/plant/${id}`, payload, headers);
 
 export const getAllUsers = headers => manager.get(`/users`, headers);
 export const deleteUserById = (headers, id) => manager.delete(`/user/${id}`, headers);

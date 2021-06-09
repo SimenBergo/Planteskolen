@@ -68,7 +68,7 @@ class DisplayPlants extends Component {
         const lastwatered = new Date();
 
         const payload = { name, building, room, waterschedule, lastwatered, fertilizer, flags, fertilizerschedule, lastfertilized, nextfertilizing };
-            await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
+            await api.updatePlantById(id, payload).then(res => {
             window.location.reload();
         })
     }

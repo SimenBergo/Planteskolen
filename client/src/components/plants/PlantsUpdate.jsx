@@ -56,7 +56,7 @@ class PlantsUpdate extends Component {
         
         const { id, name, building, room, waterschedule, lastwatered, fertilizer, flags, fertilizerschedule, lastfertilized } = this.state;
         const payload = { name, building, room, waterschedule, lastwatered, fertilizer, flags, fertilizerschedule, lastfertilized };
-            await api.updatePlantById(this.context.generateHeaders(), id, payload).then(res => {
+            await api.updatePlantById(id, payload).then(res => {
             window.alert(`Plant updated successfully!`);
             this.setState({
                 name: '',
