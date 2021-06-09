@@ -1,0 +1,713 @@
+html {
+  background-color: #F0EAD2;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Kiwi Maru', serif;
+}
+
+.App-header, nav {
+  background-color: #6C584C;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  width: 100%;
+}
+
+h1 {
+  color: #DDE5B6;
+  font-family: 'Montserrat Subrayada', sans-serif;
+  align-items: flex-start;
+  width: 30%;
+  font-size: xx-large;
+  margin: 0;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+h3 {
+  margin: 2px;
+  font-weight: bolder;
+  color: black;
+}
+
+#water {
+  background-color: #61dafb;
+  color: black;
+  margin: 1%;
+}
+#water:hover,
+#fertilize:hover,
+#delete:hover,
+#update:hover,
+#remove-flag:hover {
+  transform: scale(1.05);
+}
+
+#delete {
+  background-color: lightcoral;
+  color: black;
+  margin: 1%;
+  max-height: 50px;
+}
+
+#fertilize {
+  background-color: #6C584C;
+  color: #F0EAD2;
+  margin: 1%;
+}
+
+#update {
+  background-color: lightyellow;
+  color: black;
+  margin: 1% 0;
+  max-height: 50px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  width: 30%;
+  padding: 0;
+  margin: 0;
+  margin-right: 1%;
+  font-weight: bold;
+}
+
+li a {
+  font-size: medium;
+}
+
+a {
+  text-decoration: none;
+  color: #F0EAD2;
+  margin: 3%;
+}
+
+a:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+  color: black;
+}
+
+a:active {
+  color: #DDE5B6;
+}
+
+li:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+p a {
+  color: black;
+  font-size: xx-large;
+}
+
+p a:hover {
+  color: #ADC178;
+  transform: scale(1.2);
+  transition-duration: 0.2s;
+}
+
+#remove-flag {
+  color: #c50202;
+  background-color: #adc178;
+}
+
+
+
+header img {
+  height: 70px;
+}
+
+header img:hover {
+  transform: scale(1.3);
+  transition-duration: 2s;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 700px;
+}
+
+#activeUser {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#activeUser p {
+  margin: 0;
+  color: #f0ead2;
+}
+
+#activeUser img {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+#activeUser a {
+  color: black;
+  margin: 0;
+}
+
+#activeUser:hover {
+  transform: scale(1.1);
+}
+
+#activeUser p:hover {
+  color: black;
+}
+
+#extraInfo {
+  display: none;
+}
+
+#show:hover + #extraInfo {
+  transition-duration: 1s;
+  display: block;
+}
+
+figure img {
+  max-width: 15%;
+}
+
+#Mustad {
+  width: 50%;
+  margin-bottom: 5%;
+}
+
+#notification {
+  background-color: #adc178;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 80%;
+  font-size: larger;
+  font-weight: bold;
+  color: rgb(197, 2, 2);
+}
+
+#notification p {
+  margin: 5px;
+  font-size: medium;
+}
+
+#cancel {
+  width: fit-content;
+}
+
+#activePlant {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 30%;
+  background-color: #DDE5B6;
+  border: 2px solid black;
+  border-radius: 2%;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  max-width: 80%;
+  justify-content: flex-end;
+  margin: 1%;
+}
+
+#back {
+  width: 85%;
+}
+
+input[type="submit" i] {
+  font-family: 'Kiwi Maru', serif;
+  border-radius: 10%;
+}
+input[type="submit" i]:hover {
+  background-color: #ADC178;
+  color: black;
+  
+}
+
+label {
+  margin: 1%;
+  max-width: 47%;
+}
+
+#profile {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background-color: #DDE5B6;
+
+}
+
+#updateSelf, #profile, #myProfile {
+  width: 60%;
+  margin: 4%;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 1%;
+  background-color: #DDE5B6;
+}
+
+
+#gardener {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  width: 90%;
+}
+
+
+figure {
+  background-color: #A98467;
+  max-height: fit-content;
+  margin: 1% 30%;
+  padding: 1%;
+  border: 3px solid black;
+}
+
+#project {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#project h2 {
+  margin: 10px;
+}
+
+#projectInfo {
+  word-wrap: break-word;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 60%;
+  background-color: #F0EAD2;
+  border: none;
+}
+
+#projectInfo p {
+  margin: 10px;
+}
+
+#plants {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 1%;
+  background-color: #F0EAD2;
+}
+
+#plantOverview {
+  width: 90%;
+  margin: 2%;
+}
+
+#plants figure {
+  margin: 1%;
+  max-width: 10%;
+}
+
+#plants figure:hover {
+  transform: scale(1.1);
+  transition-duration: 0.3s;
+}
+
+#plants figure img {
+  max-width: 40%;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#userCard {
+  background-color: #F0EAD2;
+  padding: 2px;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 2%;
+  height: 250px;
+  width: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#userCard p {
+  word-wrap: break-word;
+  margin: 2px;
+}
+
+#allPlants {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #F0EAD2;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2%;
+  width: 100%;
+}
+
+#plantCard {
+  background-color: #DDE5B6;
+  border-radius: 2%;
+  padding: 6px;
+  margin: 5px;
+  border: 2px solid black;
+  min-height: fit-content;
+  width: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#warning-count-regular {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+}
+
+#icon-explain {
+  display: flex;
+  flex-direction: column;
+}
+
+#icon-explain img {
+  max-width: 30px;
+  max-height: 30px;
+  align-self: center;
+  margin-right: 5px;
+}
+
+#icon-explain span {
+  max-height: 18px;
+  border-radius: 9px;
+  align-self: center;
+  margin-right: 5px;
+}
+
+#flag, 
+#needwater, 
+#fullwater {
+  display: flex;
+  flex-direction: row;
+}
+
+#warning-count {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  align-self: flex-end;
+  margin-right: -10px;
+  margin-top: -10px;
+}
+
+.plant-warning {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+#userCard a, #plantCard a, #plantCardWatered a {
+  width: 100%;
+  margin: 0;
+}
+
+#userCard a:hover, #plantCard a:hover, #plantCardWatered a:hover {
+  transform: scale(1);
+}
+
+#plantCard p {
+  font-size: smaller;
+  margin: 2px;
+}
+
+#plantCard img {
+  max-width: 70px;
+}
+
+.MuiButton-label {
+  font-family: 'Kiwi Maru', serif;
+  font-weight: bold;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  margin: 0;
+}
+
+.MuiButton-text {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#userCard:hover, #plantCard:hover {
+  transform: scale(1.05);
+  transition-duration: 0.7s;
+  background-color: #adc178;
+}
+
+#plantCardWatered:hover {
+  transform: scale(1.05);
+  transition-duration: 0.7s;
+  background-color: #bef1ff;
+}
+
+h5 {
+  margin: 2px;
+}
+
+#manager {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 4%;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+section, #addPlant, #addUser, #editUser, #resetPassword {
+  background-color: #F0EAD2;
+  width: 90%;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+}
+
+section {
+  background-color: #DDE5B6;
+}
+
+#dispUsers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#water-warning {
+  width: 100%;
+  display: flex;
+}
+
+#water-warning img {
+  max-width: 30px;
+  vertical-align: top;
+  align-self: flex-start;
+  margin-top: -20px;
+  margin-left: -10px;
+}
+
+#dispPlants {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+footer {
+  background-color: #171717;
+  width: 100%;
+  margin: 0;
+  margin-top: auto;
+  box-shadow: 0 50vh 0 50vh #171717;
+}
+
+footer p {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(201, 201, 201);
+}
+
+#bar {
+  background-color: white;
+  border: 2px solid black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+#level1, #level2, #level3, #level4 {
+  background-color: #61dafb;
+  padding: 1%;
+  margin: 5px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid black;
+}
+
+footer img {
+  max-width: 30%;
+  margin: 1%;
+}
+
+#plantsort {
+  margin-bottom: 10px;
+}
+
+#tooltip {
+  display: none;
+}
+
+#tooltip-hover + #tooltip {
+  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+  
+  .App-header, nav {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  main {
+    margin: 5px;
+    min-height: 800px;
+  }
+  nav img {
+    display: none;
+  }
+ 
+  h1 {
+    margin: 5px;
+    width: 90%;
+    font-size: 200%;
+  }
+  nav ul {
+    margin: 2px;
+    padding: 0;
+    width: 95%;
+  }
+  li {
+    margin: 2px;
+  }
+  li a {
+    font-size: small;
+  }
+  #notification p {
+    margin: 5px;
+    font-size: small;
+  }
+  #plants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+  }
+  #plants figure {
+    max-width: 40%;
+  }
+  #plants figure:hover {
+    transform: scale(1.05);
+    transition-duration: 0.3s;
+  }
+
+  #plantCard img, #plantCardWatered img {
+    max-width: 50px;
+  }
+  #update, #water, #delete {
+    max-height: 25px;
+    font-size: smaller;
+  }
+  footer img {
+    max-width: 50%;
+  }
+  #userCard {
+    background-color:#DDE5B6;
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid black;
+    width: 40%;
+    height: 40%;
+    font-size: smaller;
+  }
+  #userCard p {
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+  .MuiButton-label {
+    font-size: smaller;
+  }
+  #activeUser p{
+    font-size: small;
+    justify-content: center;
+  }
+  #activePlant {
+    margin: 2% 5%;
+  }
+  #plantCard, #plantCardWatered {
+    height: fit-content;
+    max-width: 40%;
+    justify-content: center;
+  }
+  #plantCard p, #plantCardWatered p {
+    font-size: xx-small;
+    margin: 0;
+  }
+  #updateSelf, #profile, #myProfile {
+    width: 90%;
+  }
+  #notification {
+    font-size: smaller;
+  }
+  #projectInfo {
+    width: 90%;
+  }
+  #Mustad {
+    width: 90%;
+  }
+  #water-warning img {
+    max-width: 20px;
+    vertical-align: top;
+    align-self: flex-start;
+    margin-top: -10px;
+    margin-left: -10px;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+
+  #Mustad {
+    width: 70%;
+    margin-bottom: 1%;
+  }
+  main {
+    min-height: 1100px;
+  }
+  #project h2 {
+    margin: 2%;
+  }
+
+}
