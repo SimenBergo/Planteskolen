@@ -105,7 +105,7 @@ class UsersUpdate extends Component {
                         </select>
                         </label>
                         
-                        <input type="submit" value="Update user" />
+                        <input className='submit-class' type="submit" value="Update user" />
                     </form>
                     <Button href={`/managerpage`} id="cancel">Cancel</Button>
                     </>

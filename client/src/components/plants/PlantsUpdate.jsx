@@ -188,7 +188,7 @@ class PlantsUpdate extends Component {
                         </>
                         }
                         
-                        <input id='submit-id' type="submit" value="Update plant" />
+                        <input className='submit-class' type="submit" value="Update plant" />
                     </form>
                     <Button href={`/plant-overview`} id="cancel">Cancel</Button>
                     </>
