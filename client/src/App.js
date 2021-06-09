@@ -60,8 +60,6 @@ class App extends Component {
                 <Route exact path="/reset/:token">
                   <ResetPassword />
                 </Route>
-                <Route component={ PageNotFound } />
-              </Switch>
 
               {/* Private routes only for logged in users */}
               <PrivateRoute exact path="/profile">
@@ -74,6 +72,8 @@ class App extends Component {
               {/* Private route only for managers */}
               <ManagerRoute component={PlantsInsert} exact path="/add-plant" />
               <ManagerRoute component={Manager} exact path="/managerpage" />
+              <Route component={ PageNotFound } />
+              </Switch>
             </main>
             <Footer />
           </div>
