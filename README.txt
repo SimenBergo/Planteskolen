@@ -44,19 +44,7 @@ If you want to change this to test the back end locally as well, go to client/sr
 To start the server locally, run "node index.js" in the main folder, after changing
 the details above. Run this in a separate terminal window to start both the server and client at
 the same time.   
-From here on you can log in with these provided test users:
 
-Manager for testing:
- - email: manager@user.com
- - password: Manager123
-
-Gardener for testing:
- - email: gardener@user.com
- - password: Gardener123
-
-The details of these users can be changed however you like.
-Trying them both out will show you the areas of the system
-you can access with the different levels of authorization.
 To be able to test the forgot password functionality,
 change the email of your user to one you can actually access.
 An email will be sent from our API to this adress with further
