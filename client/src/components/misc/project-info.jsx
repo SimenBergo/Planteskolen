@@ -22,11 +22,13 @@ class Projectinfo extends Component {
                 </section>
                 <img id="Mustad" alt="Mustad buildings" src={Mustad}></img>
                 {/* hide login button if already logged in */}
-                {!this.context.isAuthFunc() &&
+                {!this.context.isAuthFunc() && 
+                    <>
                     <p><Link to="/login">Login</Link></p>
                     <p>Login details for testing: </p>
                     <p>Email: gardener@test.no</p>
                     <p>Password: gardener1234</p>
+                    </>
                 }
             </div>
         )
